@@ -178,6 +178,9 @@ class DecisionTree:
                 for example in examples:
                     if example[attribute] != None:
                         values.append(example[attribute])
+                if len(values) / 4 > 20:
+                    random.shuffle(values)
+                    values = values[:int(len(values)/4)]
                 values = sorted(values)
                 for threshold in values:
                     child_ge = []
