@@ -228,7 +228,7 @@ class DecisionTree:
         child_ge = self.learn_tree(child_ge)
         child_lt = self.learn_tree(child_lt)
 
-        return DecisionNode(best_attr, best_threshold, child_ge, child_lt, miss_lt=False)
+        return DecisionNode(best_attr, best_threshold, child_lt, child_ge, miss_lt=False)
 
     def calculate_entropy(self, examples):
         class_labels = []
