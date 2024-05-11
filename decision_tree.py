@@ -257,14 +257,6 @@ class DecisionTree:
         Returns: a tuple containing a class label and a probability
         """
         node = self.root
-        while isinstance(node, DecisionNode):
-            test_val = example[node.test_attr_name]
-            if test_val is None:
-                node = node.child_lt if node.miss_lt else node.child_ge
-            elif test_val < node.test_attr_threshold:
-                node = node.child_lt
-            else:
-                node = node.child_ge
         return node.classify(example)
 
     def __str__(self):
